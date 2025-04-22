@@ -5,44 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            font-family: "굴림",sans-serif;
+        }
         body {
             margin: 20px;
+            background-image: url(https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9966CF3359CEC9E118);
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+        sub {
+            font-size: 10pt;
+            color: lightseagreen
         }
         textarea {
             margin-top: 10px;
         }
-        #header {
-            color: #265416
+        h1 > span {
+            font-weight: 100pt;
+            background-color: rgb(38, 84, 18, 0.8);
+            color: #ffffff
+        }
+        h1 > span:hover {
+            color: rgb(0, 0, 0)
         }
         h3 {
             color: lightslategray
         }
-        ul li a {
+        .title {
+            color: #253150
+        }
+        #first {
+            padding-left: 3pt;
+            list-style: none;
+        }
+        #table {
+            background-color: hsl(51, 100%, 92%);
+            margin: 5px 0px 5px 0px;
+        }
+        input[type="submit"] {
+            background: hwb(100 74% 21%);
+        }
+        table > tbody > tr:first-child > th:first-child {
+            color: #e5b823
+        }
+        input:focus {
+            border: rgb(0, 0, 0);
+            border-width: 3px;
+        }
+        .help {
+            color: rgb(107, 112, 125)
+        }
+        #ul {
+            overflow: hidden;
+            padding-left: 0;
+        }
+        #ul > li {
+            padding-right: 5px;
+            list-style: none;
+            float: left;
+            padding: 10px
+        }
+        #ul > li:first-child {
+            border-radius: 10px 0px 0px 10px;
+        }
+        #ul > li:last-child {
+            border-radius: 0px 10px 10px 0px;
+        }
+        #ul > li:nth-child(2n) {
+            background-color: #e5f2e8;
+            color: #6c7670
+        }
+        #ul > li:nth-child(2n+1) {
+            color: #e5f2e8;
+            background-color: #6c7670
+        }
+        #box {
+            color: black;
+            text-align: center;
+            line-height: 100px;
+            width: 120px; height: 100px;
+            background-color: #96bd95;
+            border: 10px dashed rgb(74, 81, 74);
+            border-radius: 10px 0px 10px 0px;
+            margin: 20px 0px 20px 0px;
+            padding: 0px 30px 0px 30px;
+            box-shadow: 5px 5px 5px #000, 5px 5px 5px #e5b823;
+        }
+        #ghost {
+            display: none;
+            overflow: hidden;
+        }
+        #wow {
+            display: inline;
+            background-color: #b4c3ba;
+            margin: 55px;
+        }
+        .click > a {
+            color: white;
+            display: block;
             text-decoration: none;
         }
     </style>
 </head>
 <body>
     <div id="header">
-        <img scr="https://pbs.twimg.com/media/GpI-FwObEAEbzI8?format=jpg&name=medium" alt="사진" width="100">
-        <img scr="#" alt="사진" width="100">
-        <h1><b><i><ins>챕터3~4&nbsp;<sub>최대한 많은 속성 사용하기</sub></ins></i></b></h1>
-        <h3><del>공백&nbsp;&nbsp;연습</del></h3>
+        <img src="https://pbs.twimg.com/media/GpCZfr2aUAAGskU.jpg" alt="사진" width="300"><br>
+        <img scr="#" alt="의도적으로 존재하지 않는 사진입니다" width="100">
+        <h1><span><b><i><ins>챕터3~5&nbsp;</ins></span><sub>&nbsp;&nbsp;최대한 많은 속성 사용하기</sub></i></b></h1>
+        <h3><del>공백&nbsp;&nbsp;&nbsp;연습</del></h3>
         <hr>
-        <br>
     </div>
     <div>
-        <ul>
+        <ul id="first">
             <li>
-                <b>목록</b>
+                <b class="title">목록</b>
                 <ol>
-                    <li a href="#type">입력양식</li>
-                    <li a href="#table">표</li>
+                    <li>입력양식</li>
+                    <li>표</li>
                 </ol>
             </li>
         </ul>
     </div>
-    <div>
+    <div id="fieldset">
         <fieldset id="type">
             <legend>작성칸</legend>
     
@@ -65,10 +150,10 @@
             </select><br>
     
             <label for="woman">여성</label>
+            <input id="woman" type="radio" name="gender" value="여성"><br>
             <label for="man">남성</label>
+            <input id="man" type="radio" name="gender" value="남성"><br>
             <label for="etc">기타</label>
-            <input id="man" type="radio" name="gender" value="남성">
-            <input id="woman" type="radio" name="gender" value="여성">
             <input id="etc" type="radio" name="gender" value="기타">
             <br>
     
@@ -78,12 +163,14 @@
             <input id="pw" type="password" name="password"><br>
     
             <textarea cols="20" rows="10" placeholder="간단한 자기소개 작성"></textarea><br>
+
+            <input id="submit" type="submit" value="제출"><br>
         </fieldset>
-    </div>
+    </div><hr>
     <div>
         <table border="1" id="table">
             <tr>
-                <th colspan="3">교수님에이쁠주세요</th>
+                <th colspan="4">교수님에이쁠주세요</th>
                 <td>비고</td>
             </tr>
             <tr>
@@ -100,6 +187,23 @@
                 <td>자퇴</td>
             </tr>
         </table>
-    </div>
+    </div><hr>
+
+    <span>이 사이에는 >></span>
+    <div id="ghost">유령</div>
+    <span><< 텍스트가 있습니다</span><br>
+    <div id="wow">유령글자입니다</div><hr>
+
+    <div id="box" class="click"><a href="https://vomcha.com/wp-content/uploads/2024/02/four-leaf-clover-031.jpg"><b>눌러보세요</b></a></div><hr>
+
+    <p class="help"><i>도움주신 분들</i></p>
+    <ul id="ul">
+        <li>한에님</li>
+        <li>치깡퐁의악마님</li>
+        <li>별님</li>
+        <li>화랑님</li>
+        <li>지건교수님</li>
+        <li>스마일여신님</li>
+    </ul>
 </body>
 </html>
